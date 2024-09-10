@@ -1,4 +1,4 @@
-''' FFT implementation from butterfly as seen in https://github.com/HazyResearch/fly/blob/master/src/models/layers/monarch_linear.py -- must adapt in original einops/jax format '''
+''' FFT implementation from butterfly as seen in https://github.com/HazyResearch/fly/blob/master/src/models/layers/monarch_linear.py -- must adapt in original einops/jax '''
 
 import math
 from functools import reduce
