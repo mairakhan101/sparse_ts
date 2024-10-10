@@ -132,7 +132,7 @@ class FFTDeepCleanAE(nn.Module):
 
         self.downsampler = nn.Sequential()
         
-        '''
+        
         for i, out_channels in enumerate([8, 16, 32, 64]):
             conv_block = FFTConv1d(
                 in_channels,
@@ -147,8 +147,8 @@ class FFTDeepCleanAE(nn.Module):
             self.downsampler.add_module(f"act_{i+1}", nn.Tanh())
             
             in_channels = out_channels
-        '''
         
+        '''
         for i, out_channels in enumerate([8, 16, 32, 64]):
             conv_block = ConvBlock(
                 in_channels,
@@ -160,7 +160,7 @@ class FFTDeepCleanAE(nn.Module):
             )
             self.downsampler.add_module(f"CONV_{i+1}", conv_block)
             in_channels = out_channels
-            
+        '''
         self.upsampler = nn.Sequential()
         for i, out_channels in enumerate([32, 16, 8, self.num_witnesses]):
             conv_block = ConvBlock(

@@ -62,3 +62,4 @@ def get_component_sin_xpy(tensor, freq, collapse_dim=False):
         return (sin_xpy_direction @ tensor)
     else:
         return sin_xpy_direction[:, None] @ (sin_xpy_direction[None, :] @ tensor)
+

@@ -15,18 +15,21 @@ def gauss_sig(x, t, std_min, std_max, amp_min, amp_max, num_pulses, std_length):
         amp = np.random.uniform(amp_min, amp_max)
         
         window_length = int(2 * std_length * std)  # Ensure the window length is odd
-        
+        if window_length % 2 == 1: window_length -= 1
+                
         window = signal.windows.gaussian(window_length, std=std)
         window = amp*window
         
         
-        pos = np.random.randint(window_length, signal_length)
+        pos = np.random.randint(window_length, signal_length-window_length//2)
         
         start = pos - (window_length // 2) 
         end = pos + (window_length // 2 )
         
+        
         window_segment = window[:end - start]  # Adjust the length of the window segment
         x[start:end] += window_segment
+
         '''
         plt.figure(figsize=(12, 6))
         plt.plot(t, x)

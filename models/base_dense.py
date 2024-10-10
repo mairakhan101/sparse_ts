@@ -19,9 +19,9 @@ class BaselineDense(nn.Module):
         )
 
     def forward(self, x):
-        batch_size, channels, width, height = x.size()
+        # batch_size, channels, width, height = x.size()
 
         # (batch, 1, width, height) -> (batch, 1*width*height)
-        x = x.view(batch_size, -1)
+        # x = x.view(batch_size, -1)
 
         return self.model(x)

@@ -55,4 +55,4 @@ def add_noise_to_signal(signal, noise_type, noise_level=1.0, sr=10000):
     else:
         raise ValueError("Unsupported noise type")
     
-    return signal + noise
+    return signal + noise, noise
